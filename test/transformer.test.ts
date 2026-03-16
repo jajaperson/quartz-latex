@@ -17,9 +17,16 @@ describe("Latex", () => {
     expect(plugins).toHaveLength(1);
   });
 
-  it("uses mathjax when configured", () => {
+  it("uses mathjax/svg when configured", () => {
     const ctx = createCtx();
-    const transformer = Latex({ renderEngine: "mathjax" });
+    const transformer = Latex({ renderEngine: "mathjax/svg" });
+    const plugins = transformer.htmlPlugins?.(ctx) ?? [];
+    expect(plugins).toHaveLength(1);
+  });
+
+    it("uses mathjax/chtml when configured", () => {
+    const ctx = createCtx();
+    const transformer = Latex({ renderEngine: "mathjax/chtml" });
     const plugins = transformer.htmlPlugins?.(ctx) ?? [];
     expect(plugins).toHaveLength(1);
   });

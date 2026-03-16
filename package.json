@@ -46,11 +46,11 @@
   },
   "peerDependencies": {
     "@jackyzha0/quartz": "^4.5.2",
-    "preact": "^10.0.0",
     "@myriaddreamin/rehype-typst": "^0.5.0",
-    "rehype-katex": "^7.0.1",
-    "rehype-mathjax": "^6.0.0",
-    "remark-math": "^6.0.0"
+    "preact": "^10.0.0",
+    "@jajaperson/rehype-katex": "^7.0.1",
+    "@jajaperson/rehype-mathjax": "^7.1.0",
+    "@jajaperson/remark-math": "^6.0.0"
   },
   "peerDependenciesMeta": {
     "@jackyzha0/quartz": {
@@ -87,12 +87,9 @@
     "katex": "^0.16.11",
     "preact": "^10.28.2",
     "prettier": "^3.6.2",
-    "rehype-katex": "^7.0.1",
-    "rehype-mathjax": "^6.0.0",
-    "remark-math": "^6.0.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
-    "vitest": "^2.1.9"
+    "vitest": "^4.1.0"
   },
   "engines": {
     "node": ">=22",
