@@ -1,7 +1,7 @@
 import remarkMath from "@jajaperson/remark-math";
 import rehypeKatex from "@jajaperson/rehype-katex";
 import rehypeMathjaxSvg, { type Options as SvgOptions } from "@jajaperson/rehype-mathjax/svg";
-import rehypeMathjaxChtml, { type Options as ChtmlOptions} from "@jajaperson/rehype-mathjax/chtml";
+import rehypeMathjaxChtml, { type Options as ChtmlOptions } from "@jajaperson/rehype-mathjax/chtml";
 import rehypeTypst from "@myriaddreamin/rehype-typst";
 import type { QuartzTransformerPlugin } from "@quartz-community/types";
 import type { KatexOptions } from "katex";
@@ -12,26 +12,30 @@ interface TypstOptions {
 
 export type Args = boolean | number | string | null;
 
-export type LatexOptions = {
-  renderEngine: "katex",
-  engineOptions?: KatexOptions,
-} | {
-  renderEngine: "mathjax/chtml",
-  engineOptions?: ChtmlOptions,
-} | {
-  renderEngine: "mathjax/svg",
-  engineOptions?: SvgOptions,
-} | {
-  renderEngine: "typst"
-  engineOptions?: TypstOptions,
-}
+export type LatexOptions =
+  | {
+      renderEngine: "katex";
+      engineOptions?: KatexOptions;
+    }
+  | {
+      renderEngine: "mathjax/chtml";
+      engineOptions?: ChtmlOptions;
+    }
+  | {
+      renderEngine: "mathjax/svg";
+      engineOptions?: SvgOptions;
+    }
+  | {
+      renderEngine: "typst";
+      engineOptions?: TypstOptions;
+    };
 
 const defaultLatexOptions: LatexOptions = {
   renderEngine: "katex",
-}
+};
 
 export const Latex: QuartzTransformerPlugin<LatexOptions | undefined> = (opts) => {
-  const {renderEngine, engineOptions} = opts ?? defaultLatexOptions
+  const { renderEngine, engineOptions } = opts ?? defaultLatexOptions;
 
   return {
     name: "Latex",
@@ -41,16 +45,16 @@ export const Latex: QuartzTransformerPlugin<LatexOptions | undefined> = (opts) =
     htmlPlugins() {
       switch (renderEngine) {
         case "katex": {
-          return [[rehypeKatex, engineOptions ?? {}]]
+          return [[rehypeKatex, engineOptions ?? {}]];
         }
         case "mathjax/chtml": {
-          return [[rehypeMathjaxChtml, engineOptions ?? {}]]
+          return [[rehypeMathjaxChtml, engineOptions ?? {}]];
         }
         case "mathjax/svg": {
-          return [[rehypeMathjaxSvg, engineOptions ?? {}]]
+          return [[rehypeMathjaxSvg, engineOptions ?? {}]];
         }
         case "typst": {
-          return [[rehypeTypst, engineOptions ?? {}]]
+          return [[rehypeTypst, engineOptions ?? {}]];
         }
       }
     },

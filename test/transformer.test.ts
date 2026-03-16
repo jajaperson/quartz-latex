@@ -24,7 +24,7 @@ describe("Latex", () => {
     expect(plugins).toHaveLength(1);
   });
 
-    it("uses mathjax/chtml when configured", () => {
+  it("uses mathjax/chtml when configured", () => {
     const ctx = createCtx();
     const transformer = Latex({ renderEngine: "mathjax/chtml" });
     const plugins = transformer.htmlPlugins?.(ctx) ?? [];
