@@ -30,13 +30,10 @@ ExternalPlugin.Latex({
 
 ## Configuration
 
-| Option           | Type                               | Default     | Description                            |
-| ---------------- | ---------------------------------- | ----------- | -------------------------------------- |
-| `renderEngine`   | `"katex" \| "mathjax" \| "typst"`  | `"katex"`   | The rendering engine to use for LaTeX. |
-| `customMacros`   | `Record<string, string \| Args[]>` | `{}`        | Custom LaTeX macros.                   |
-| `katexOptions`   | `KatexOptions`                     | `undefined` | Options for the KaTeX engine.          |
-| `mathJaxOptions` | `MathjaxOptions`                   | `undefined` | Options for the MathJax engine.        |
-| `typstOptions`   | `TypstOptions`                     | `undefined` | Options for the Typst engine.          |
+| Option          | Type                                                           | Default   | Description                                       |
+| --------------- | -------------------------------------------------------------- | --------- | ------------------------------------------------- |
+| `renderEngine`  | `"katex"` \| `"mathjax/chtml"` \| `"mathjax/svg"` \| `"typst"` | `"katex"` | The rendering engine to use for LaTeX (or Typst). |
+| `engineOptions` | See options for corresponding engine.                          | `{}`      | Configures the rendering engine.                  |
 
 ## Documentation
 
